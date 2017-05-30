@@ -99,14 +99,16 @@ public class RNABeacon extends ReactContextBaseJavaModule {
 
 		Beacon beacon = new Beacon.Builder()
 				.setId1(uuid)
-				.setId2(minor)
-				.setId3(major)
-				.setManufacturer(manufacturer)
-				.setTxPower(-59)
-				.setDataFields(data)
+				.setId2(major)
+				.setId3(minor)
+				.setManufacturer(0x004C)
+				.setTxPower(-56)
+				.setDataFields(Arrays.asList(new Long[] {0l}))
 				.build();
+
 		BeaconParser beaconParser = new BeaconParser()
-				.setBeaconLayout("m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25");
+        .setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24");
+
 		this.beaconTransmitter = new BeaconTransmitter(context, beaconParser);
 		beaconTransmitter.startAdvertising(beacon, new AdvertiseCallback() {
 
