@@ -64,7 +64,7 @@ class RNABeacon {
     if((onSuccess && typeof onSuccess === 'function')||(onError && typeof onError === 'function')) {
       return _RNABeacon.stopTransmitting(onSuccess, onError);
     }
-    return new Promise((resolve)=> _RNABeacon.stopTransmitting(resolve));
+    return new Promise((resolve, reject)=> _RNABeacon.stopTransmitting(resolve, reject));
   }
 
 
