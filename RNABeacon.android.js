@@ -47,11 +47,11 @@ class RNABeacon {
   }
   startTransmitting(uuid, options, onSuccess=null, onError=null) {
     const _options = {
-      ...options,
       major: null,
       minor: null,
       manufacturer: null,
-      data: null
+      data: null,
+      ...options,
     };
     if((onSuccess && typeof onSuccess === 'function')||(onError && typeof onError === 'function')) {
       return _RNABeacon.startTransmitting(uuid, _options, onSuccess, onError);
